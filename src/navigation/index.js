@@ -1,14 +1,16 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { telaInicial} from "../view/telaInicial";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import { telaInicial } from "../view/telaInicial";
 import { telaLogin } from "../view/telaLogin";
 
-const Stack = createNativeStackNavigator();
+const Tab= createMaterialBottomTabNavigator();
 
 export const RootNavigation = () => {
-return(
-    <Stack.Navigator>
-        <Stack.Screen name={"Inicio"} component={telaInicial}/>
-        <Stack.Screen name={"Login"} component={telaLogin} />
-    </Stack.Navigator>
-)
-}
+    return (
+        <Tab.Navigator screenOptions={{ headerShown: false }}>
+            <Tab.Screen options={{tabBarIcon:"cat"}} name={"Inicio"} component={telaInicial} />
+            <Tab.Screen options={{tabBarIcon:"cat"}} name={"Login"} component={telaLogin} />
+        </Tab.Navigator>
+    );
+};
+
+
